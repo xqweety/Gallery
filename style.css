@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.items {
+    display: flex;
+    width: max-content;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.item {
+    position: relative;
+    width: 25vw;
+    height: 100%;
+    overflow: hidden;
+}
+
+.itemWrap {
+    width: 100%;
+    height: 100%;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.itemOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #555555;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.item:hover .itemOverlay {
+    top: -100%
+}
+
+
+.title {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: none;
+    font-size: 10vh;
+    text-transform: uppercase;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.title span {
+    display: block;
+    font-size: 2.5vh;
+}
+
+.container:has(.item:hover) .title {
+    top: -10%;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.container:not(:has(.item:hover)) .title {
+    top: 50%;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

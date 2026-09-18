@@ -1,6 +1,4 @@
 const items = document.querySelector('.items')
-const itemsWrap = document.querySelector('.itemWrap')
-
 const totalImage = 13
 
 const image = Array.from({ length: totalImage },
